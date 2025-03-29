@@ -1,12 +1,20 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
+import React, { useState } from "react";
+import AuthContainer from "./components/AuthContainer";
+import Dashboard from "./layouts/AdminLayout/AdminLayout";
+import "./styles/global.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const App = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-    </Routes>
+    <>
+      {isAuthenticated ? (
+        <Dashboard />
+      ) : (
+        <AuthContainer onLogin={() => setIsAuthenticated(true)} />
+      )}
+    </>
   );
 };
 

@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 const Home = () => {
   return (
     <div className="min-h-screen bg-blue-100">
-      {/* Thanh menu */}
+      {/* Navbar */}
       <Navbar />
 
       {/* Nội dung chính */}
