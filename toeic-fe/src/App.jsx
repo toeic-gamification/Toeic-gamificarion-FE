@@ -1,16 +1,21 @@
-import { Routes, Route } from "react-router-dom";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import React, { useState } from "react";
+import AuthContainer from "./components/AuthContainer";
+import Dashboard from "./layouts/AdminLayout/AdminLayout";
+import "./styles/global.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
-function App() {
+const App = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   return (
-    <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/" element={<h1>Home Page</h1>} />{" "}
-      {/* Thêm route mặc định */}
-    </Routes>
+    <>
+      {isAuthenticated ? (
+        <Dashboard />
+      ) : (
+        <AuthContainer onLogin={() => setIsAuthenticated(true)} />
+      )}
+    </>
   );
-}
+};
 
 export default App;
