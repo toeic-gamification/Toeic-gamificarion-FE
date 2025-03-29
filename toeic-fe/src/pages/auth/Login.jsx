@@ -63,6 +63,7 @@ const Login = () => {
         <Button
           text={loading ? "Signing in..." : "Sign In"}
           className="btn-primary"
+          onClick={handleLogin}
         />
       </form>
     </div>
